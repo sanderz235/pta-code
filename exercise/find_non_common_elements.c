@@ -14,7 +14,7 @@ int main()
 		scanf("%d",&arr2[i]);
 	}
 	int arr3[40]={0};
-	int j=0,isFound=0;//arr3
+	int j=0,is_common=0;//arr3
 	// 处理arr1
 	for(int i=0;i<n;i++)
 	{
@@ -22,28 +22,28 @@ int main()
 		{
 			if(arr1[i]==arr2[k])
 			{
-				isFound=1;
+				is_common=1;
 				break;
 			}
 		}
-		if(!isFound)
+		if(!is_common)
 		{
-			int isFound2=0;
+			int already_in_arr3=0;
 			for(int l=0;l<j;l++)//去除重复
 		{
 			if (arr1[i]==arr3[l])
 			{
-				isFound2=1;
+				already_in_arr3=1;
 				break;
 			}
 		}
-			if(!isFound2)
+			if(!already_in_arr3)
 			{
 				arr3[j]=arr1[i];
 				j++;
 			}
 		}
-		isFound=0;
+		is_common=0;
 	}
 	//处理arr2
 	for(int i=0;i<m;i++)
@@ -52,28 +52,28 @@ int main()
 		{
 			if(arr2[i]==arr1[k])
 			{
-				isFound=1;
+				is_common=1;
 				break;
 			}
 		}
-		if(!isFound)
+		if(!is_common)
 		{
-			int isFound2=0;
+			int already_in_arr3=0;
 		for(int l=0;l<j;l++)//去除重复
 		{
 			if (arr2[i]==arr3[l])
 			{
-				isFound2=1;
+				already_in_arr3=1;
 				break;
 			}
 		}
-			if(!isFound2)
+			if(!already_in_arr3)
 			{
 				arr3[j]=arr2[i];
 				j++;
 			}
 		}
-		isFound=0;
+		is_common=0;
 	}
 	//打印
 	printf("%d",arr3[0]);
