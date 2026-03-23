@@ -1,5 +1,6 @@
 #include<stdio.h>
-	int arr[1005][1005];
+// 漏洞？右边界是0
+int arr[1005][1005];
 int main()
 {
 	int n;
@@ -17,8 +18,8 @@ int main()
 			if(arr[i][j]==0){
 				row_start=i;
 				column_start=j;
-				printf("row_start:%d\n",row_start);
-				printf("column_start:%d\n",column_start);
+				// printf("row_start:%d\n",row_start);
+				// printf("column_start:%d\n",column_start);
 				flag=1;
 				break;
 			}
@@ -28,7 +29,7 @@ int main()
 	for(int i=row_start;i<n;i++){
 		if(arr[i][column_start]==255){
 			row_end=i;
-			printf("row_end:%d\n",row_end);
+			// printf("row_end:%d\n",row_end);
 			break;
 		}
 	}
@@ -36,11 +37,11 @@ int main()
 	for(int i=column_start;i<n;i++){
 		if(arr[row_start][i]==255){
 			column_end=i;
-			printf("column_end:%d\n",column_end);
+			// printf("column_end:%d\n",column_end);
 			break;
 		}
 	}
-	int area=(row_end-row_start-1)*(column_end-column_start-1);
+	int area=(row_end-row_start-2)*(column_end-column_start-2);
 	printf("%d",area);
 	return 0;
  } 
